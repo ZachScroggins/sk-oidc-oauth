@@ -1,5 +1,11 @@
 # sk-oidc-oauth
 
+## 1.1.0
+
+### Minor Changes
+
+- [`395ccfb`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/395ccfbe9c1dfb510f15ff227db056920a38890a) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - Accept `redirectTo` arg in `startSigninRedirect` method.
+
 ## 1.0.2
 
 ### Patch Changes
