@@ -41,3 +41,5 @@ export const errorToast = (toastStore: ToastStore, message: string) => {
     timeout: 15000, // 15 seconds
   });
 };
+
+export const doubleThem = (a: number, b: number) => a * b;
