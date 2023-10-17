@@ -91,7 +91,12 @@ jobs:
           PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
 
       - name: Changesets output
-        run: echo -e ${{join(steps.changesets.outputs.*, '\n')}}
+        run: |
+          echo ${{ steps.changesets.outputs }}
+          echo -e ${{steps.changesets.outputs.published}} 2>/dev/null || true
+          echo -e ${{steps.changesets.outputs.publishedPackages}} 2>/dev/null || true
+          echo -e ${{steps.changesets.outputs.hasChangesets}} 2>/dev/null || true
+          echo -e ${{steps.changesets.outputs.pullRequestNumber}} 2>/dev/null || true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
