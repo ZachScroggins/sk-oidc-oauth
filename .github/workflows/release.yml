@@ -24,9 +24,6 @@ jobs:
       - name: Install Dependencies
         run: npm i
 
-      - name: First publish
-        run: npm publish
-
       # - name: Test
       #   run: npm run test:cov
 
@@ -78,12 +75,12 @@ jobs:
       #   with:
       #     file_pattern: './static/*-badge.svg'
 
-      # - name: Create Release Pull Request
-      #   uses: changesets/action@v1
-      #   with:
-      #     publish: npm run release
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #     PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
-      #     PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          publish: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
+          PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
