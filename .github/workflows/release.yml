@@ -34,15 +34,15 @@ jobs:
         with:
           file-coverage-mode: all
 
-      - name: Create Coverage Badge - Lines
-        uses: wjervis7/vitest-badge-action@v1.0.0
-        if: always() # run whether steps succeed or not
-        with:
-          result-type: lines
-          upload-badge: false
-          badge-text: Lines
-          badge-path: ./static/lines-badge.svg
-          vitest-config-path: ./vite.config.ts
+      # - name: Create Coverage Badge - Lines
+      #   uses: wjervis7/vitest-badge-action@v1.0.0
+      #   if: always() # run whether steps succeed or not
+      #   with:
+      #     result-type: lines
+      #     upload-badge: false
+      #     badge-text: Lines
+      #     badge-path: ./static/lines-badge.svg
+      #     vitest-config-path: ./vite.config.ts
 
       # - name: Create Coverage Badge - Statements
       #   uses: wjervis7/vitest-badge-action@v1.0.0
@@ -90,8 +90,8 @@ jobs:
           PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
           PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
 
-      - name: Commit Badges After Merge
-        uses: stefanzweifel/git-auto-commit-action@v4
-        if: steps.changesets.outputs.published == 'false'
-        with:
-          file_pattern: './static/*-badge.svg'
+      # - name: Commit Badges After Merge
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   if: steps.changesets.outputs.published == 'false'
+      #   with:
+      #     file_pattern: './static/*-badge.svg'
