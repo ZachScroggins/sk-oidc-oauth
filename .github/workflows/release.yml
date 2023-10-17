@@ -97,6 +97,12 @@ jobs:
           echo -e ${{steps.changesets.outputs.publishedPackages}} 2>/dev/null || true
           echo -e ${{steps.changesets.outputs.hasChangesets}} 2>/dev/null || true
           echo -e ${{steps.changesets.outputs.pullRequestNumber}} 2>/dev/null || true
+          echo -e ${{steps.changesets.outputs.pullRequestNumber == null && 'true' || 'false'}} 2>/dev/null || true
+          echo -e ${{steps.changesets.outputs.pullRequestNumber == '' && 'true' || 'false'}} 2>/dev/null || true
+          echo -e ${{steps.changesets.outputs.pullRequestNumber == '11' && 'true' || 'false'}} 2>/dev/null || true
+          echo -e ${{steps.changesets.outputs.pullRequestNumber == 11 && 'true' || 'false'}} 2>/dev/null || true
+          echo -e ${{steps.changesets.outputs.pullRequestNumber == 0 && 'true' || 'false'}} 2>/dev/null || true
+          echo -e ${{steps.changesets.outputs.pullRequestNumber == 1 && 'true' || 'false'}} 2>/dev/null || true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -110,6 +116,7 @@ jobs:
           result-type: lines
           badge-text: Lines
           badge-path: lines-badge.svg
+          vitest-config-path: ./vite.config.ts
           gist-token: ${{ secrets.GIST_TOKEN }}
           gist-url: https://gist.github.com/ZachScroggins/b8b49faa30e1c89ee7edefe90be9ca6f
 
