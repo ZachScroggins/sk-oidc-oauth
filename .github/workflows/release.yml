@@ -76,7 +76,7 @@ jobs:
       #     file_pattern: './static/*-badge.svg'
 
       - name: Cat local npmrc before
-        run: cat $HOME/.npmrc
+        run: cat .npmrc 2>/dev/null || true
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       
@@ -86,7 +86,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Cat local npmrc after
-        run: cat $HOME/.npmrc
+        run: cat .npmrc 2>/dev/null || true
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
