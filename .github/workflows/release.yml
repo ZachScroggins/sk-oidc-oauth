@@ -92,7 +92,7 @@ jobs:
 
       - name: Changesets output
         run: |
-          echo ${{ steps.changesets.outputs }}
+          echo "${{ steps.changesets.outputs }}"
           echo -e ${{steps.changesets.outputs.published}} 2>/dev/null || true
           echo -e ${{steps.changesets.outputs.publishedPackages}} 2>/dev/null || true
           echo -e ${{steps.changesets.outputs.hasChangesets}} 2>/dev/null || true
