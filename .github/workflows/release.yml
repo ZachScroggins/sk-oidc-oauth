@@ -90,15 +90,22 @@ jobs:
           PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
           PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
 
-      - name: Create Coverage Badge - Lines
-        uses: wjervis7/vitest-badge-action@v1.0.0
-        if: always() # run whether steps succeed or not
-        with:
-          result-type: lines
-          badge-text: Lines
-          badge-path: lines-badge.svg
-          gist-token: ${{ secrets.GIST_TOKEN }}
-          gist-url: https://gist.github.com/ZachScroggins/b8b49faa30e1c89ee7edefe90be9ca6f
+      - name: Changesets output
+        run: echo -e ${{join(steps.changesets.outputs.*, '\n')}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
+          PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
+      # - name: Create Coverage Badge - Lines
+      #   uses: wjervis7/vitest-badge-action@v1.0.0
+      #   if: always() # run whether steps succeed or not
+      #   with:
+      #     result-type: lines
+      #     badge-text: Lines
+      #     badge-path: lines-badge.svg
+      #     gist-token: ${{ secrets.GIST_TOKEN }}
+      #     gist-url: https://gist.github.com/ZachScroggins/b8b49faa30e1c89ee7edefe90be9ca6f
 
       # - name: Commit Badges After Merge
       #   uses: stefanzweifel/git-auto-commit-action@v4
