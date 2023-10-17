@@ -78,10 +78,10 @@ jobs:
       #   with:
       #     file_pattern: './static/*-badge.svg'
 
-      - name: Copy .npmrc
-        run: cp .npmrc $HOME/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Copy .npmrc
+      #   run: cp .npmrc $HOME/.npmrc
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Cat npmrc
         run: cat $HOME/.npmrc
