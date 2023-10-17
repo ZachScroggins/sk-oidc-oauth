@@ -12,12 +12,6 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Node.js 16
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-
       - name: Checkout Repo
         uses: actions/checkout@v4
 
