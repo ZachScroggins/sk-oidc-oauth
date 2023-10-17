@@ -77,6 +77,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
+          PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
