@@ -75,30 +75,13 @@ jobs:
       #   with:
       #     file_pattern: './static/*-badge.svg'
 
-      - name: Cat local npmrc before
-        run: cat .npmrc 2>/dev/null || true
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      
       - name: NPM Auth
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Cat local npmrc after
-        run: cat .npmrc 2>/dev/null || true
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Copy .npmrc
         run: cp .npmrc $HOME/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Cat HOME npmrc
-        run: cat $HOME/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
