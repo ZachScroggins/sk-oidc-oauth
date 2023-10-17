@@ -36,13 +36,15 @@
     "preview": "vite preview",
     "package": "svelte-kit sync && svelte-package && publint",
     "prepublishOnly": "npm run package",
+    "release": "changeset publish",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test": "vitest",
     "test:cov": "vitest --coverage",
     "test:cov:ui": "vitest --ui --coverage",
     "lint": "prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --check . && eslint .",
-    "format": "eslint --fix .; prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write ."
+    "format": "eslint --fix .; prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write .",
+    "postinstall": "svelte-kit sync"
   },
   "peerDependencies": {
     "@sveltejs/kit": "^1.20.4",

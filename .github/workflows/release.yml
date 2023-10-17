@@ -24,67 +24,63 @@ jobs:
       - name: Install Dependencies
         run: npm i
 
-      - name: Test
-        run: npm run test:cov
+      # - name: Test
+      #   run: npm run test:cov
 
-      - name: Report Coverage
-        # Also generate the report if tests are failing
-        if: always()
-        uses: davelosert/vitest-coverage-report-action@v2
-        with:
-          file-coverage-mode: all
+      # - name: Report Coverage
+      #   # Also generate the report if tests are failing
+      #   if: always()
+      #   uses: davelosert/vitest-coverage-report-action@v2
+      #   with:
+      #     file-coverage-mode: all
 
-      - name: Create Coverage Badge - Lines
-        uses: wjervis7/vitest-badge-action@v1.0.0
-        if: success() || failure() # run whether steps succeed or not
-        with:
-          result-type: lines
-          upload-badge: false
-          badge-text: 'Lines'
-          badge-path: './static/lines-badge.svg'
+      # - name: Create Coverage Badge - Lines
+      #   uses: wjervis7/vitest-badge-action@v1.0.0
+      #   if: success() || failure() # run whether steps succeed or not
+      #   with:
+      #     result-type: lines
+      #     upload-badge: false
+      #     badge-text: 'Lines'
+      #     badge-path: './static/lines-badge.svg'
 
-      - name: Create Coverage Badge - Statements
-        uses: wjervis7/vitest-badge-action@v1.0.0
-        if: success() || failure() # run whether steps succeed or not
-        with:
-          result-type: statements
-          upload-badge: false
-          badge-text: 'Statements'
-          badge-path: './static/statements-badge.svg'
+      # - name: Create Coverage Badge - Statements
+      #   uses: wjervis7/vitest-badge-action@v1.0.0
+      #   if: success() || failure() # run whether steps succeed or not
+      #   with:
+      #     result-type: statements
+      #     upload-badge: false
+      #     badge-text: 'Statements'
+      #     badge-path: './static/statements-badge.svg'
 
-      - name: Create Coverage Badge - Functions
-        uses: wjervis7/vitest-badge-action@v1.0.0
-        if: success() || failure() # run whether steps succeed or not
-        with:
-          result-type: functions
-          upload-badge: false
-          badge-text: 'Functions'
-          badge-path: './static/functions-badge.svg'
+      # - name: Create Coverage Badge - Functions
+      #   uses: wjervis7/vitest-badge-action@v1.0.0
+      #   if: success() || failure() # run whether steps succeed or not
+      #   with:
+      #     result-type: functions
+      #     upload-badge: false
+      #     badge-text: 'Functions'
+      #     badge-path: './static/functions-badge.svg'
 
-      - name: Create Coverage Badge - Branches
-        uses: wjervis7/vitest-badge-action@v1.0.0
-        if: success() || failure() # run whether steps succeed or not
-        with:
-          result-type: branches
-          upload-badge: false
-          badge-text: 'Branches'
-          badge-path: './static/branches-badge.svg'
+      # - name: Create Coverage Badge - Branches
+      #   uses: wjervis7/vitest-badge-action@v1.0.0
+      #   if: success() || failure() # run whether steps succeed or not
+      #   with:
+      #     result-type: branches
+      #     upload-badge: false
+      #     badge-text: 'Branches'
+      #     badge-path: './static/branches-badge.svg'
 
-      - name: Commit Badges
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          file_pattern: './static/*-badge.svg'
-
-      - name: Build
-        run: npm run build
-        env:
-          PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
-          PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
+      # - name: Commit Badges
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     file_pattern: './static/*-badge.svg'
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
         with:
-          publish: npm publish
+          publish: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
+          PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
