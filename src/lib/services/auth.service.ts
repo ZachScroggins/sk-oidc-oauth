@@ -142,11 +142,11 @@ export class AuthService {
     }
   }
 
-  public static async startSigninRedirect() {
+  public static async startSigninRedirect(redirectTo?: string) {
     try {
       await AuthService.mgr.signinRedirect({
         state: {
-          pathname: window.location.pathname,
+          pathname: redirectTo ?? window.location.pathname,
           search: window.location.search,
         },
       });
