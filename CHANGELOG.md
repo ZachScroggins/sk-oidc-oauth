@@ -1,5 +1,11 @@
 # sk-oidc-oauth
 
+## 1.0.2
+
+### Patch Changes
+
+- [`92fc9bd`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/92fc9bd276ae298b6c3321155f86d793df3a2610) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - Setting up CI
+
 ## 1.0.1
 
 ### Patch Changes
