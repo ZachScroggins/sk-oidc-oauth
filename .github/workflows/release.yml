@@ -14,9 +14,6 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -78,15 +75,30 @@ jobs:
       #   with:
       #     file_pattern: './static/*-badge.svg'
 
-      # - name: Copy .npmrc
-      #   run: cp .npmrc $HOME/.npmrc
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Cat local npmrc before
+        run: cat $HOME/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: NPM Auth
+        run: echo "\n//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # - name: Cat npmrc
-      #   run: cat $HOME/.npmrc
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Cat local npmrc after
+        run: cat $HOME/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Copy .npmrc
+        run: cp .npmrc $HOME/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Cat HOME npmrc
+        run: cat $HOME/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
