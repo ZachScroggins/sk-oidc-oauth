@@ -20,7 +20,8 @@ export default defineConfig({
     setupFiles: 'test/setup.vitest.ts',
     coverage: {
       provider: 'v8',
-      reporter: ['html', 'lcov', 'text'],
+      reporter: ['text', 'html', 'json', 'json-summary'],
+      lines: 80,
       exclude: [
         'src/**/*.svelte',
         'src/lib/types',
