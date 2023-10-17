@@ -1,5 +1,19 @@
 # sk-oidc-oauth
 
+## 1.1.1
+
+### Patch Changes
+
+- [`4ac2780`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/4ac27807ff8771d99d8a8bb3a37d62d97757cd71) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - Debug ci
+
+- [`5a438b4`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/5a438b40ebf6737b1082a68fa6d9252186281a0e) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - Debug ci
+
+- [`9c121ce`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/9c121ce406e0da3dca23c6c3f97096aed7a315f9) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - Debug `changesets` output again.
+
+- [`1491621`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/14916210afb1eeaa71097b65e5127f85defa5c4f) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - Debug `changesets` output.
+
+- [#10](https://github.com/ZachScroggins/sk-oidc-oauth/pull/10) [`4b9ddaa`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/4b9ddaace2ab739b9e607b82a4d203950ab88c65) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - Debug CI
+
 ## 1.1.0
 
 ### Minor Changes
