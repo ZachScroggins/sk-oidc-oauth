@@ -1,8 +1,10 @@
 {
   "name": "sk-oidc-oauth",
   "description": "SvelteKit client for AWS Athena",
-  "author": "Zach Scroggins",
+  "author": "Zach Scroggins <58402189+ZachScroggins@users.noreply.github.com>",
   "license": "MIT",
+  "private": false,
+  "version": "1.0.0",
   "keywords": [
     "svelte",
     "sveltekit",
@@ -10,6 +12,10 @@
     "oauth",
     "client"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZachScroggins/sk-oidc-oauth"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -45,6 +51,7 @@
     "svelte": "^4.0.5"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
     "@floating-ui/dom": "^1.5.3",
     "@iconify/json": "^2.2.123",
