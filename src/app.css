@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: url('/fonts/Inter-Variable.ttf');
+}
+
+:root [data-theme='wintry'] {
+  --theme-font-family-base: 'Inter', 'Inter fallback', sans-serif;
+  --theme-font-family-heading: 'Inter', 'Inter fallback', sans-serif;
+  --input-autofill-bg: var(--color-surface-200);
+  --input-autofill-color: var(--theme-font-color-base);
+}
+
+/* remove user agent autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgb(var(--input-autofill-bg)) inset !important;
+  -webkit-text-fill-color: rgb(var(--input-autofill-color)) !important;
+  font-family: var(--theme-font-family-base) !important;
+}
+.dark [data-theme='wintry'] {
+  --input-autofill-bg: var(--color-surface-700);
+  --input-autofill-color: var(--theme-font-color-dark);
+}

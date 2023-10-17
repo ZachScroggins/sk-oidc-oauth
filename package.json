@@ -1,0 +1,87 @@
+{
+  "name": "sk-oidc-oauth",
+  "description": "SvelteKit client for AWS Athena",
+  "author": "Zach Scroggins",
+  "license": "MIT",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "oidc",
+    "oauth",
+    "client"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "prepare": "svelte-kit sync",
+    "dev": "vite dev",
+    "build": "vite build && npm run package",
+    "preview": "vite preview",
+    "package": "svelte-kit sync && svelte-package && publint",
+    "prepublishOnly": "npm run package",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "vitest",
+    "test:cov": "vitest --coverage",
+    "test:cov:ui": "vitest --ui --coverage",
+    "lint": "prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --check . && eslint .",
+    "format": "eslint --fix .; prettier --plugin prettier-plugin-svelte --plugin prettier-plugin-tailwindcss --write ."
+  },
+  "peerDependencies": {
+    "@sveltejs/kit": "^1.20.4",
+    "oidc-client-ts": "^2.3.0",
+    "svelte": "^4.0.5"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@floating-ui/dom": "^1.5.3",
+    "@iconify/json": "^2.2.123",
+    "@skeletonlabs/skeleton": "2.2.0",
+    "@skeletonlabs/tw-plugin": "0.2.1",
+    "@sveltejs/adapter-static": "^2.0.3",
+    "@sveltejs/adapter-vercel": "^3.0.3",
+    "@sveltejs/package": "^2.2.2",
+    "@tailwindcss/forms": "0.5.6",
+    "@tailwindcss/typography": "0.5.10",
+    "@types/jsdom": "^21.1.3",
+    "@types/node": "20.8.2",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitest/coverage-v8": "^0.34.6",
+    "@vitest/ui": "^0.34.6",
+    "autoprefixer": "10.4.16",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-svelte": "^2.30.0",
+    "fontaine": "^0.4.1",
+    "jsdom": "^22.1.0",
+    "postcss": "8.4.31",
+    "prettier": "^3.0.3",
+    "prettier-plugin-svelte": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "publint": "^0.2.4",
+    "svelte-check": "^3.4.3",
+    "svelte-legos": "^0.2.2",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss": "3.3.3",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "unplugin-icons": "^0.17.0",
+    "vite": "^4.4.2",
+    "vite-plugin-tailwind-purgecss": "0.1.3",
+    "vitest": "^0.32.2"
+  }
+}
