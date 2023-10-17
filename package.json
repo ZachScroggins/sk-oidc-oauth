@@ -31,7 +31,6 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "prepare": "svelte-kit sync",
     "dev": "vite dev",
     "build": "vite build && npm run package",
     "preview": "vite preview",
