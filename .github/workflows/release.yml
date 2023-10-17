@@ -111,7 +111,7 @@ jobs:
 
       - name: Create Coverage Badge - Lines
         uses: wjervis7/vitest-badge-action@v1.0.0
-        if: ${{steps.changesets.outputs.pullRequestNumber}} == null # only run if not a PR
+        if: ${{steps.changesets.outputs.pullRequestNumber == null}} # do not run on PRs
         with:
           result-type: lines
           badge-text: Lines
