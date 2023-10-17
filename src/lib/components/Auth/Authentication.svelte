@@ -15,13 +15,11 @@
    *
    * @default
    * ```svelte
-   * <div
+   * <header
    *   class="flex h-full min-h-[calc(100dvh-4rem)] w-full flex-col items-center justify-center px-4 pb-16"
    * >
-   *   <div class="space-y-5">
-   *     <h1 class="text-3xl md:text-5xl">Authenticating...</h1>
-   *   </div>
-   * </div>
+   *   <h1 class="mt-5 text-3xl md:text-5xl">Authenticating...</h1>
+   * </header>
    * ```
    */
   export let loadingComponent: typeof SvelteComponent<any, any, any> | null = null;
