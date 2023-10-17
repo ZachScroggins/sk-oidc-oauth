@@ -75,6 +75,14 @@ jobs:
       #   with:
       #     file_pattern: './static/*-badge.svg'
 
+      - name: Echo NPM_TOKEN
+        run: echo $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Copy .npmrc
+        run: cp .npmrc $HOME/.npmrc
+
       - name: Create Release Pull Request
         uses: changesets/action@v1
         with:
