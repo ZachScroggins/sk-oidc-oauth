@@ -21,7 +21,7 @@
       <button
         class="variant-filled-tertiary btn"
         type="button"
-        on:click|preventDefault={AuthService.startSigninRedirect}>Sign in</button
+        on:click|preventDefault={() => AuthService.startSigninRedirect()}>Sign in</button
       >
       <button
         class="variant-filled-secondary btn"
@@ -30,40 +30,40 @@
       >
     </p>
     <div class="divide table-container grid max-w-2xl grid-cols-3 grid-rows-4 gap-2 rounded">
-      <button class="btn btn-sm" type="button" on:click={AuthService.clearLocalStaleState}
-        >clear stale state</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.getUser}>get user</button>
-      <button class="btn btn-sm" type="button" on:click={AuthService.removeLocalUser}
-        >remove user</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.querySessionStatus}
-        >query user status at token server</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.revokeAccessToken}
-        >revoke access token</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.startSigninRedirect}
-        >start signin main window</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.endSigninRedirect}
-        >end signin main window</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.silentSignin}
-        >signin silent/renew access token</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.startSignoutRedirect}
-        >start signout main window</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.endSignoutRedirect}
-        >end signout main window</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.popupSignin}
-        >signin with popup</button
-      >
-      <button class="btn btn-sm" type="button" on:click={AuthService.popupSignout}
-        >signout with popup</button
-      >
+      <button class="btn btn-sm" type="button" on:click={AuthService.clearLocalStaleState}>
+        clear stale state
+      </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.getUser}> get user </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.removeLocalUser}>
+        remove user
+      </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.querySessionStatus}>
+        query user status at token server
+      </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.revokeAccessToken}>
+        revoke access token
+      </button>
+      <button class="btn btn-sm" type="button" on:click={() => AuthService.startSigninRedirect()}>
+        start signin main window
+      </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.endSigninRedirect}>
+        end signin main window
+      </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.silentSignin}>
+        signin silent/renew access token
+      </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.startSignoutRedirect}>
+        start signout main window
+      </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.endSignoutRedirect}>
+        end signout main window
+      </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.popupSignin}>
+        signin with popup
+      </button>
+      <button class="btn btn-sm" type="button" on:click={AuthService.popupSignout}>
+        signout with popup
+      </button>
     </div>
     <div class="table-container max-w-2xl">
       <table class="table">
