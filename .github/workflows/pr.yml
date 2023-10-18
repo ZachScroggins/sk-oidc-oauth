@@ -27,49 +27,7 @@ jobs:
         run: npm run test:cov
 
       - name: Report Coverage
-        # Generate the report even if tests are failing
-        if: always()
+        if: always() # Generate the report even if tests are failing
         uses: davelosert/vitest-coverage-report-action@v2
         with:
           file-coverage-mode: all
-
-      # - name: Create Coverage Badge - Lines
-      #   uses: wjervis7/vitest-badge-action@v1.0.0
-      #   if: always() # run whether steps succeed or not
-      #   with:
-      #     result-type: lines
-      #     upload-badge: false
-      #     badge-text: 'Lines'
-      #     badge-path: './static/lines-badge.svg'
-
-      # - name: Create Coverage Badge - Statements
-      #   uses: wjervis7/vitest-badge-action@v1.0.0
-      #   if: always() # run whether steps succeed or not
-      #   with:
-      #     result-type: statements
-      #     upload-badge: false
-      #     badge-text: 'Statements'
-      #     badge-path: './static/statements-badge.svg'
-
-      # - name: Create Coverage Badge - Functions
-      #   uses: wjervis7/vitest-badge-action@v1.0.0
-      #   if: always() # run whether steps succeed or not
-      #   with:
-      #     result-type: functions
-      #     upload-badge: false
-      #     badge-text: 'Functions'
-      #     badge-path: './static/functions-badge.svg'
-
-      # - name: Create Coverage Badge - Branches
-      #   uses: wjervis7/vitest-badge-action@v1.0.0
-      #   if: always() # run whether steps succeed or not
-      #   with:
-      #     result-type: branches
-      #     upload-badge: false
-      #     badge-text: 'Branches'
-      #     badge-path: './static/branches-badge.svg'
-
-      # - name: Commit Badges
-      #   uses: stefanzweifel/git-auto-commit-action@v4
-      #   with:
-      #     file_pattern: './static/*-badge.svg'

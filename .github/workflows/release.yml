@@ -34,43 +34,6 @@ jobs:
         with:
           file-coverage-mode: all
 
-      # - name: Create Coverage Badge - Lines
-      #   uses: wjervis7/vitest-badge-action@v1.0.0
-      #   if: always() # run whether steps succeed or not
-      #   with:
-      #     result-type: lines
-      #     upload-badge: false
-      #     badge-text: Lines
-      #     badge-path: ./static/lines-badge.svg
-      #     vitest-config-path: ./vite.config.ts
-
-      # - name: Create Coverage Badge - Statements
-      #   uses: wjervis7/vitest-badge-action@v1.0.0
-      #   if: always() # run whether steps succeed or not
-      #   with:
-      #     result-type: statements
-      #     upload-badge: false
-      #     badge-text: 'Statements'
-      #     badge-path: './static/statements-badge.svg'
-
-      # - name: Create Coverage Badge - Functions
-      #   uses: wjervis7/vitest-badge-action@v1.0.0
-      #   if: always() # run whether steps succeed or not
-      #   with:
-      #     result-type: functions
-      #     upload-badge: false
-      #     badge-text: 'Functions'
-      #     badge-path: './static/functions-badge.svg'
-
-      # - name: Create Coverage Badge - Branches
-      #   uses: wjervis7/vitest-badge-action@v1.0.0
-      #   if: always() # run whether steps succeed or not
-      #   with:
-      #     result-type: branches
-      #     upload-badge: false
-      #     badge-text: 'Branches'
-      #     badge-path: './static/branches-badge.svg'
-
       - name: NPM Auth
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
         env:
@@ -90,25 +53,6 @@ jobs:
           PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
           PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
 
-      - name: Changesets output
-        run: |
-          echo "${{ steps.changesets.outputs }}"
-          echo -e ${{steps.changesets.outputs.published}} 2>/dev/null || true
-          echo -e ${{steps.changesets.outputs.publishedPackages}} 2>/dev/null || true
-          echo -e ${{steps.changesets.outputs.hasChangesets}} 2>/dev/null || true
-          echo -e ${{steps.changesets.outputs.pullRequestNumber}} 2>/dev/null || true
-          echo -e ${{steps.changesets.outputs.pullRequestNumber == null && 'true' || 'false'}} 2>/dev/null || true
-          echo -e ${{steps.changesets.outputs.pullRequestNumber == '' && 'true' || 'false'}} 2>/dev/null || true
-          echo -e ${{steps.changesets.outputs.pullRequestNumber == '11' && 'true' || 'false'}} 2>/dev/null || true
-          echo -e ${{steps.changesets.outputs.pullRequestNumber == 11 && 'true' || 'false'}} 2>/dev/null || true
-          echo -e ${{steps.changesets.outputs.pullRequestNumber == 0 && 'true' || 'false'}} 2>/dev/null || true
-          echo -e ${{steps.changesets.outputs.pullRequestNumber == 1 && 'true' || 'false'}} 2>/dev/null || true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          PUBLIC_AZURE_CLIENT_ID: ${{ secrets.PUBLIC_AZURE_CLIENT_ID }}
-          PUBLIC_AZURE_TENANT_ID: ${{ secrets.PUBLIC_AZURE_TENANT_ID }}
-
       - name: Create Coverage Badge - Lines
         uses: wjervis7/vitest-badge-action@v1.0.0
         if: ${{steps.changesets.outputs.pullRequestNumber == null}} # do not run on PRs
@@ -120,8 +64,35 @@ jobs:
           gist-token: ${{ secrets.GIST_TOKEN }}
           gist-url: https://gist.github.com/ZachScroggins/b8b49faa30e1c89ee7edefe90be9ca6f
 
-      # - name: Commit Badges After Merge
-      #   uses: stefanzweifel/git-auto-commit-action@v4
-      #   if: steps.changesets.outputs.published == 'false'
-      #   with:
-      #     file_pattern: './static/*-badge.svg'
+      - name: Create Coverage Badge - Statements
+        uses: wjervis7/vitest-badge-action@v1.0.0
+        if: ${{steps.changesets.outputs.pullRequestNumber == null}} # do not run on PRs
+        with:
+          result-type: statements
+          badge-text: Statements
+          badge-path: statements-badge.svg
+          vitest-config-path: ./vite.config.ts
+          gist-token: ${{ secrets.GIST_TOKEN }}
+          gist-url: https://gist.github.com/ZachScroggins/b8b49faa30e1c89ee7edefe90be9ca6f
+
+      - name: Create Coverage Badge - Functions
+        uses: wjervis7/vitest-badge-action@v1.0.0
+        if: ${{steps.changesets.outputs.pullRequestNumber == null}} # do not run on PRs
+        with:
+          result-type: functions
+          badge-text: Functions
+          badge-path: functions-badge.svg
+          vitest-config-path: ./vite.config.ts
+          gist-token: ${{ secrets.GIST_TOKEN }}
+          gist-url: https://gist.github.com/ZachScroggins/b8b49faa30e1c89ee7edefe90be9ca6f
+
+      - name: Create Coverage Badge - Branches
+        uses: wjervis7/vitest-badge-action@v1.0.0
+        if: ${{steps.changesets.outputs.pullRequestNumber == null}} # do not run on PRs
+        with:
+          result-type: branches
+          badge-text: Branches
+          badge-path: branches-badge.svg
+          vitest-config-path: ./vite.config.ts
+          gist-token: ${{ secrets.GIST_TOKEN }}
+          gist-url: https://gist.github.com/ZachScroggins/b8b49faa30e1c89ee7edefe90be9ca6f
