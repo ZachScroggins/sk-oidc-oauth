@@ -88,6 +88,19 @@
   }
 </script>
 
+<!-- 
+  @component
+  
+  Authentication provider. This component is meant to be used as a wrapper around the application.
+  
+  @example
+    ```svelte
+    <Authentication userManagerSettings={...settings}>
+      <slot />
+    </Authentication>
+    ```
+ -->
+
 {#if $isLoading && params?.has('code') && loadingComponent}
   <svelte:component this={loadingComponent} />
 {:else if $isLoading && params?.has('code')}

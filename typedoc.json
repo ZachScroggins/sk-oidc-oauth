@@ -1,0 +1,10 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["dist/index.d.ts", "src/lib/index.ts"],
+  "tsconfig": "tsconfig.typedoc.json",
+  "externalPattern": [""],
+  "includeVersion": true,
+  "cleanOutputDir": true,
+  "disableSources": false,
+  "sourceLinkTemplate": "https://github.com/ZachScroggins/sk-oidc-oauth/blob/main/{path}?at={gitRevision}#line={line}"
+}

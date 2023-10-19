@@ -35,6 +35,19 @@
   const { isLoading } = AuthService;
 </script>
 
+<!-- 
+  @component
+  
+  Authorization wrapper.
+  
+  @example
+    ```svelte
+    <Authorization passCondition={$isAuthenticated && !$isLoading} redirect="/auth/login">
+      <slot />
+    </Authorization>
+    ```
+ -->
+
 {#if $isLoading && loadingComponent}
   <svelte:component this={loadingComponent} />
 {:else if $isLoading}

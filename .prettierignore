@@ -5,6 +5,7 @@ node_modules
 /.svelte-kit
 /.vercel
 /package
+/docs
 .env
 .env.*
 !.env.example

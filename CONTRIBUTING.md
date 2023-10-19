@@ -18,7 +18,7 @@ Make changes to the package in [`src/lib`](./src/lib/) and the Docs site in [`sr
 
 ### Build
 
-To create a production version of the package:
+To build the library:
 
 ```bash
 npm run package

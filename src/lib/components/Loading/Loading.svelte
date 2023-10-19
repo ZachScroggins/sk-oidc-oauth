@@ -6,7 +6,7 @@
   header {
     display: flex;
     height: 100%;
-    min-height: calc(100vh - 4rem);
+    min-height: 100dvh;
     width: 100%;
     flex-direction: column;
     align-items: center;
