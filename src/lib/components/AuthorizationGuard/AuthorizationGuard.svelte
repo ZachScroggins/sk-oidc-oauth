@@ -19,14 +19,12 @@
   /**
    * Component to render while loading/authenticating.
    *
-   * @default
+   * @example
    * ```svelte
    * <div
    *   class="flex h-full min-h-[calc(100dvh-4rem)] w-full flex-col items-center justify-center px-4 pb-16"
    * >
-   *   <div class="space-y-5">
-   *     <h1 class="text-3xl md:text-5xl">Authenticating...</h1>
-   *   </div>
+   *   <h1 class="mt-5 text-3xl md:text-5xl">Authenticating...</h1>
    * </div>
    * ```
    */
@@ -36,16 +34,15 @@
 </script>
 
 <!-- 
-  @component
-  
-  Authorization wrapper.
-  
-  @example
-    ```svelte
-    <Authorization passCondition={$isAuthenticated && !$isLoading} redirect="/auth/login">
-      <slot />
-    </Authorization>
-    ```
+@component
+Authorization wrapper.
+
+@example
+```svelte
+<Authorization passCondition={$isAuthenticated && !$isLoading} redirect="/auth/login">
+  <slot />
+</Authorization>
+```
  -->
 
 {#if $isLoading && loadingComponent}

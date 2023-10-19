@@ -1,4 +1,4 @@
-![Logo](./static/sk-oidc-oauth.svg)
+![Logo](https://raw.githubusercontent.com/ZachScroggins/sk-oidc-oauth/main/static/sk-oidc-oauth.svg)
 
 # SvelteKit OIDC OAuth
 

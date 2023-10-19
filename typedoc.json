@@ -1,10 +1,37 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": ["dist/index.d.ts", "src/lib/index.ts"],
+  "entryPoints": ["./dist/index.d.ts"],
   "tsconfig": "tsconfig.typedoc.json",
-  "externalPattern": [""],
-  "includeVersion": true,
+  "externalPattern": ["**/node_modules/[!svelte]**"],
   "cleanOutputDir": true,
-  "disableSources": false,
-  "sourceLinkTemplate": "https://github.com/ZachScroggins/sk-oidc-oauth/blob/main/{path}?at={gitRevision}#line={line}"
+  "disableSources": true,
+  "hideParameterTypesInTitle": false,
+  "navigationLinks": {
+    "GitHub": "https://github.com/ZachScroggins/sk-oidc-oauth",
+    "NPM": "https://npmjs.com/package/sk-oidc-oauth"
+  },
+  "plugin": ["@mxssfd/typedoc-theme", "typedoc-plugin-extras", "typedoc-plugin-keywords"],
+  "theme": "my-theme",
+  "name": "SvelteKit OIDC OAuth",
+  "customTitle": "SvelteKit OIDC OAuth",
+  "customDescription": "OIDC / OAuth2 authentication and authorization for prerendered / client-side-rendered SvelteKit apps.",
+  "favicon": "./static/favicon.png",
+  "footerTypedocVersion": true,
+  "keywords": [
+    "auth",
+    "authentication",
+    "authorization",
+    "svelte",
+    "sveltekit",
+    "oidc",
+    "oauth",
+    "oauth2",
+    "client",
+    "browser",
+    "prerender",
+    "client-side-rendering",
+    "csr",
+    "spa",
+    "mpa"
+  ]
 }

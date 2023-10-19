@@ -10,16 +10,17 @@
   import Loading from '../Loading/Loading.svelte';
 
   export let userManagerSettings: UserManagerSettings;
+
   /**
    * Component to render while loading/authenticating.
    *
-   * @default
+   * @example
    * ```svelte
-   * <header
+   * <div
    *   class="flex h-full min-h-[calc(100dvh-4rem)] w-full flex-col items-center justify-center px-4 pb-16"
    * >
    *   <h1 class="mt-5 text-3xl md:text-5xl">Authenticating...</h1>
-   * </header>
+   * </div>
    * ```
    */
   export let loadingComponent: typeof SvelteComponent<any, any, any> | null = null;
@@ -89,16 +90,15 @@
 </script>
 
 <!-- 
-  @component
-  
-  Authentication provider. This component is meant to be used as a wrapper around the application.
-  
-  @example
-    ```svelte
-    <Authentication userManagerSettings={...settings}>
-      <slot />
-    </Authentication>
-    ```
+@component
+Authentication provider. This component is meant to be used as a wrapper around the application.
+
+@example
+```svelte
+<Authentication userManagerSettings={...settings}>
+  <slot />
+</Authentication>
+```
  -->
 
 {#if $isLoading && params?.has('code') && loadingComponent}
