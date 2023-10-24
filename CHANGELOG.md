@@ -1,5 +1,11 @@
 # sk-oidc-oauth
 
+## 1.1.2
+
+### Patch Changes
+
+- [#15](https://github.com/ZachScroggins/sk-oidc-oauth/pull/15) [`73c0257`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/73c0257bde45d62bf090cea3ab025803141a49df) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - favicon
+
 ## 1.1.1
 
 ### Patch Changes
