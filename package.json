@@ -4,7 +4,7 @@
   "author": "Zach Scroggins <58402189+ZachScroggins@users.noreply.github.com>",
   "license": "MIT",
   "private": false,
-  "version": "1.1.1",
+  "version": "1.1.2",
   "keywords": [
     "auth",
     "authentication",
