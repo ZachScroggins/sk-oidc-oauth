@@ -2,7 +2,7 @@
 
 Created with [create-svelte](https://www.npmjs.com/package/create-svelte).
 
-## Sending PRs
+## PRs
 
 ### Generating changelogs
 
