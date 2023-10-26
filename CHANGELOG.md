@@ -1,5 +1,11 @@
 # sk-oidc-oauth
 
+## 1.1.3
+
+### Patch Changes
+
+- [#17](https://github.com/ZachScroggins/sk-oidc-oauth/pull/17) [`09b7225`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/09b7225a1f977776189b40cfafd94413768c6d27) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps): bump crypto-js from 4.1.1 to 4.2.0
+
 ## 1.1.2
 
 ### Patch Changes
