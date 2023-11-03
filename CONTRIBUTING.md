@@ -1,6 +1,6 @@
 # SvelteKit OIDC OAuth Contributing Guide
 
-Created with [create-svelte](https://www.npmjs.com/package/create-svelte).
+Created with [create-svelte](https://www.npmjs.com/package/create-svelte) and managed with [changesets](https://github.com/changesets/changesets/tree/main#readme).
 
 ## PRs
 

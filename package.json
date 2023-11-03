@@ -2,9 +2,14 @@
   "name": "sk-oidc-oauth",
   "description": "OIDC/OAuth2 authentication and authorization for prerendered/client-side-rendered SvelteKit apps.",
   "author": "Zach Scroggins <58402189+ZachScroggins@users.noreply.github.com>",
+  "homepage": "https://sk-oidc-oauth.zachscroggins.com",
   "license": "MIT",
   "private": false,
   "version": "1.1.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZachScroggins/sk-oidc-oauth.git"
+  },
   "keywords": [
     "auth",
     "authentication",
@@ -22,10 +27,6 @@
     "spa",
     "mpa"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ZachScroggins/sk-oidc-oauth.git"
-  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
