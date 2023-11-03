@@ -5,7 +5,16 @@
 
   export let title: string;
 
-  const { accessToken, authError, idToken, isAuthenticated, isLoading, userInfo } = AuthService;
+  const {
+    accessToken,
+    authError,
+    idToken,
+    isAuthenticated,
+    isFullyAuthenticated,
+    isLoading,
+    userInfo,
+    isExpired,
+  } = AuthService;
 
   $: user = JSON.stringify($userInfo, null, 2) ?? '';
 </script>
@@ -73,6 +82,11 @@
         <tbody>
           <tr><td>isLoading</td><td>{$isLoading}</td></tr>
           <tr><td>isAuthenticated</td><td class="!whitespace-normal">{$isAuthenticated}</td></tr>
+          <tr
+            ><td>isFullyAuthenticated</td><td class="!whitespace-normal">{$isFullyAuthenticated}</td
+            ></tr
+          >
+          <tr><td>isExpired</td><td class="!whitespace-normal">{$isExpired}</td></tr>
           <tr><td>accessToken</td><td class="!whitespace-normal break-all">{$accessToken}</td></tr>
           <tr><td>idToken</td><td class="!whitespace-normal break-all">{$idToken}</td></tr>
           <tr>
