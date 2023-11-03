@@ -1,4 +1,4 @@
-import { type Writable, writable } from 'svelte/store';
+import { derived, type Writable, writable } from 'svelte/store';
 import { type ILogger, Log, Logger, UserManager } from 'oidc-client-ts';
 
 import type { UserManagerSettings } from '$lib/types';
@@ -11,6 +11,14 @@ export class AuthService {
   private static _idToken = writable('');
   private static _userInfo: Writable<Record<string, any>> = writable({});
   private static _authError: Writable<string | null> = writable(null);
+  private static _isExpired = derived(this._userInfo, ($userInfo) =>
+    $userInfo?.exp ? new Date($userInfo.exp * 1000) < new Date() : true,
+  );
+  private static _isFullyAuthenticated = derived(
+    [this._isLoading, this._authError, this._isAuthenticated, this._isExpired],
+    ([$isLoading, $authError, $isAuthenticated, $isExpired]) =>
+      !$isLoading && !$authError && $isAuthenticated && !$isExpired,
+  );
 
   constructor(
     settings: UserManagerSettings,
@@ -77,6 +85,14 @@ export class AuthService {
 
   public static get isAuthenticated() {
     return AuthService._isAuthenticated;
+  }
+
+  public static get isFullyAuthenticated() {
+    return AuthService._isFullyAuthenticated;
+  }
+
+  public static get isExpired() {
+    return AuthService._isExpired;
   }
 
   public static get accessToken() {
