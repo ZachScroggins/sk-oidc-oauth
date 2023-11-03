@@ -18,7 +18,7 @@
 
 ## Installation
 
-```sh
+```shell
 npm i -D sk-oidc-oauth
 ```
 
@@ -28,17 +28,7 @@ For full usage information, see the [docs](https://sk-oidc-oauth.zachscroggins.c
 
 ### Quick Start
 
-1. Add a callback route
-
-```svelte
-<!-- 
-  src/routes/auth/callback/azure/+page.svelte
-
-  We just need the route to be defined, so this file can/should be empty.
- -->
-```
-
-2. Register the `Authentication` provider in your root `+layout.svelte`
+1. Register the `Authentication` provider in your root `+layout.svelte`.
 
 ```svelte
 <!-- src/routes/+layout.svelte -->
@@ -48,7 +38,7 @@ For full usage information, see the [docs](https://sk-oidc-oauth.zachscroggins.c
   const userManagerSettings: UserManagerSettings = {
     authority: 'https://login.microsoftonline.com/tenant-id/v2.0',
     client_id: '1234',
-    redirect_uri: 'http://localhost:5173/auth/callback/azure-test',
+    redirect_uri: 'http://localhost:5173/auth/callback/azure',
     loadUserInfo: true,
   };
 </script>
@@ -58,7 +48,17 @@ For full usage information, see the [docs](https://sk-oidc-oauth.zachscroggins.c
 </Authentication>
 ```
 
-You're all set up! You can use all of the library's components, functions, and stores _anywhere inside the root layout_.
+2. Add a callback route for your `redirect_uri`.
+
+```svelte
+<!-- 
+  src/routes/auth/callback/azure/+page.svelte
+
+  We just need the route to be defined, so this file can/should be empty.
+ -->
+```
+
+You're all set! You can use all of the library's components, functions, and stores _anywhere inside the root layout_.
 
 #### Protect Routes
 
@@ -72,7 +72,10 @@ Use the `AuthorizationGuard` in a nested `+layout.svelte` to protect all of the 
   $: yourCustomCondition = false;
 </script>
 
-<AuthorizationGuard passCondition={$isAuthenticated && yourCustomCondition} redirect="/auth/signin">
+<AuthorizationGuard
+  passCondition={$isAuthenticated && yourCustomCondition}
+  redirect="/auth/signin"
+>
   <slot />
 </AuthorizationGuard>
 ```
@@ -82,7 +85,11 @@ Use the `AuthorizationGuard` in a nested `+layout.svelte` to protect all of the 
 ```svelte
 <!-- src/lib/components/AuthButton/AuthButton.svelte -->
 <script lang="ts">
-  import { isFullyAuthenticated, startSigninRedirect, startSignoutRedirect } from 'sk-oidc-oauth';
+  import {
+    isFullyAuthenticated,
+    startSigninRedirect,
+    startSignoutRedirect,
+  } from 'sk-oidc-oauth';
 </script>
 
 {#if $isFullyAuthenticated}
@@ -100,12 +107,15 @@ Use the `AuthorizationGuard` in a nested `+layout.svelte` to protect all of the 
   import { userInfo } from 'sk-oidc-oauth';
 </script>
 
-<h1>{$userInfo.name}</h1><p>Email: {$userInfo.email}</p>
+<ul>
+  <li>{$userInfo.name}</li>
+  <li>Email: {$userInfo.email}</li>
+</ul>
 ```
 
-## Author
+## 👨‍💻 Author
 
-👤 **Zach Scroggins**
+**Zach Scroggins**
 
 - Website: https://zachscroggins.com
 - Twitter: [@scroggins_zach](https://twitter.com/scroggins_zach)
@@ -116,7 +126,7 @@ Use the `AuthorizationGuard` in a nested `+layout.svelte` to protect all of the 
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/ZachScroggins/sk-oidc-oauth/issues). You can also take a look at the [contributing guide](https://github.com/ZachScroggins/sk-oidc-oauth/blob/main/CONTRIBUTING.md).
 
-## Show your support
+## ✨ Show your support
 
 Give a ⭐️ if this project helped you!
 
