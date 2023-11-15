@@ -1,5 +1,11 @@
 # sk-oidc-oauth
 
+## 1.1.4
+
+### Patch Changes
+
+- [#21](https://github.com/ZachScroggins/sk-oidc-oauth/pull/21) [`67fba7b`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/67fba7b7c4a0f8d1975595bb4e343fb77eac410e) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - Stores
+
 ## 1.1.3
 
 ### Patch Changes
