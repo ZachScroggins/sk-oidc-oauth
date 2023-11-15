@@ -6,12 +6,6 @@ export const prerender = false;
 export const ssr = false;
 
 export const load: PageLoad = (event) => {
-  try {
-    console.log(JSON.stringify({ fb: event }, null, 2));
-  } catch (error) {
-    console.log({ fb: event });
-  }
-
   const { params } = event;
 
   if (params.slug === 'hello-world') {

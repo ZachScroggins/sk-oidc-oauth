@@ -33,7 +33,7 @@
   userManagerSettings={{
     authority: `https://login.microsoftonline.com/${PUBLIC_AZURE_TENANT_ID}/v2.0`,
     client_id: `${PUBLIC_AZURE_CLIENT_ID}`,
-    redirect_uri: 'http://localhost:5173/auth/callback/azure-test',
+    redirect_uri: 'http://localhost:5173/auth/callback/azure',
     loadUserInfo: true,
   }}
 >
