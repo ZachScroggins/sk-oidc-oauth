@@ -16,7 +16,16 @@
     isExpired,
   } = AuthService;
 
+  const opts: Intl.DateTimeFormatOptions = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  };
+
   $: user = JSON.stringify($userInfo, null, 2) ?? '';
+  $: iat = new Date($userInfo?.iat * 1000).toLocaleTimeString('en-US', opts);
+  $: exp = new Date($userInfo?.exp * 1000).toLocaleTimeString('en-US', opts);
 </script>
 
 <div
@@ -77,18 +86,40 @@
     <div class="table-container max-w-2xl">
       <table class="table">
         <thead>
-          <tr><th style="width: 20%;">store</th><th style="width: 80%;">value</th></tr>
+          <tr>
+            <th style="width: 20%;">store</th>
+            <th style="width: 80%;">value</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>isLoading</td><td>{$isLoading}</td></tr>
-          <tr><td>isAuthenticated</td><td class="!whitespace-normal">{$isAuthenticated}</td></tr>
-          <tr
-            ><td>isFullyAuthenticated</td><td class="!whitespace-normal">{$isFullyAuthenticated}</td
-            ></tr
-          >
-          <tr><td>isExpired</td><td class="!whitespace-normal">{$isExpired}</td></tr>
-          <tr><td>accessToken</td><td class="!whitespace-normal break-all">{$accessToken}</td></tr>
-          <tr><td>idToken</td><td class="!whitespace-normal break-all">{$idToken}</td></tr>
+          <tr>
+            <td>isLoading</td>
+            <td>{$isLoading}</td>
+          </tr>
+          <tr>
+            <td>isAuthenticated</td>
+            <td class="!whitespace-normal">{$isAuthenticated}</td>
+          </tr>
+          <tr>
+            <td>isFullyAuthenticated</td>
+            <td class="!whitespace-normal">{$isFullyAuthenticated}</td>
+          </tr>
+          <tr>
+            <td>iat</td>
+            <td class="!whitespace-normal">{iat}</td>
+          </tr>
+          <tr>
+            <td>exp</td>
+            <td class="!whitespace-normal">{exp}</td>
+          </tr>
+          <tr>
+            <td>isExpired</td>
+            <td class="!whitespace-normal">{$isExpired}</td>
+          </tr>
+          <tr>
+            <td>authError</td>
+            <td class="!whitespace-normal break-all">{$authError}</td>
+          </tr>
           <tr>
             <td>userInfo</td>
             <td>
@@ -97,7 +128,14 @@
               </pre>
             </td>
           </tr>
-          <tr><td>authError</td><td class="!whitespace-normal break-all">{$authError}</td></tr>
+          <tr>
+            <td>accessToken</td>
+            <td class="!whitespace-normal break-all">{$accessToken}</td>
+          </tr>
+          <tr>
+            <td>idToken</td>
+            <td class="!whitespace-normal break-all">{$idToken}</td>
+          </tr>
         </tbody>
       </table>
     </div>

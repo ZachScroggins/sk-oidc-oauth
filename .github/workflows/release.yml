@@ -58,7 +58,7 @@ jobs:
         if: ${{steps.changesets.outputs.pullRequestNumber == null}} # do not run on PRs
         with:
           result-type: lines
-          badge-text: Lines
+          badge-text: Coverage
           badge-path: lines-badge.svg
           vitest-config-path: ./vite.config.ts
           gist-token: ${{ secrets.GIST_TOKEN }}

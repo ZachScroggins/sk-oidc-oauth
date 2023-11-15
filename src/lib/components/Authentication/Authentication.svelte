@@ -39,15 +39,23 @@
       // Use 'error' and 'code' to test if the component is being executed as a part of a login callback. If we're not
       // running in a login callback, and the user isn't logged in, see if we can capture their existing session.
       if (!params.has('error') && !params.has('code') && !$isAuthenticated) {
-        const user = await AuthService.getUser();
+        try {
+          const user = await AuthService.getUser();
 
-        if (user) {
-          await AuthService.silentSignin();
+          if (user) {
+            await AuthService.silentSignin();
 
-          isAuthenticated.set(true);
-          accessToken.set(user.access_token);
-          idToken.set(user?.id_token ?? '');
-          userInfo.set(user.profile);
+            isAuthenticated.set(true);
+            accessToken.set(user.access_token);
+            idToken.set(user?.id_token ?? '');
+            userInfo.set(user.profile);
+          }
+        } catch (err: any) {
+          isAuthenticated.set(false);
+          accessToken.set('');
+          idToken.set('');
+          userInfo.set({});
+          authError.set(err?.message ?? 'An unknown error occurred.');
         }
       }
 
