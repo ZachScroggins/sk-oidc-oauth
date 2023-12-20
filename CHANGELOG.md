@@ -1,5 +1,11 @@
 # sk-oidc-oauth
 
+## 1.1.5
+
+### Patch Changes
+
+- [#23](https://github.com/ZachScroggins/sk-oidc-oauth/pull/23) [`f575039`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/f57503974d9f544180435f883a8de83effd2bd38) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps-dev): bump vite from 4.5.0 to 4.5.1
+
 ## 1.1.4
 
 ### Patch Changes
