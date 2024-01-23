@@ -1,5 +1,11 @@
 # sk-oidc-oauth
 
+## 1.1.6
+
+### Patch Changes
+
+- [#27](https://github.com/ZachScroggins/sk-oidc-oauth/pull/27) [`bb6b466`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/bb6b4660667d4bafcd4fe2258c25abc55101bf89) Thanks [@ZachScroggins](https://github.com/ZachScroggins)! - Dependabot/npm and yarn/vite 4.5.2
+
 ## 1.1.5
 
 ### Patch Changes
