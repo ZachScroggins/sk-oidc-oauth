@@ -11,8 +11,8 @@
 [![Twitter: scroggins_zach](https://img.shields.io/twitter/follow/scroggins_zach.svg?style=social)](https://twitter.com/scroggins_zach)
 
 > ⚠️ Under Construction!
->
-> OIDC/OAuth2 authentication and authorization **for prerendered/client-side-rendered** SvelteKit apps.
+
+OIDC/OAuth2 authentication and authorization **for prerendered/client-side-rendered** SvelteKit apps.
 
 ### 🏠 [Homepage](https://sk-oidc-oauth.zachscroggins.com)
 
