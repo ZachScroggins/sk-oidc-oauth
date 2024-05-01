@@ -108,8 +108,8 @@ Use the `AuthorizationGuard` in a nested `+layout.svelte` to protect all of the 
 </script>
 
 <ul>
-  <li>{$userInfo.name}</li>
-  <li>Email: {$userInfo.email}</li>
+  <li>{$userInfo.profile.name}</li>
+  <li>Email: {$userInfo.profile.email}</li>
 </ul>
 ```
 

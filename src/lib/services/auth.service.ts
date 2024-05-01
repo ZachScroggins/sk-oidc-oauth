@@ -1,5 +1,5 @@
 import { derived, type Writable, writable } from 'svelte/store';
-import { type ILogger, Log, Logger, UserManager } from 'oidc-client-ts';
+import { type ILogger, Log, Logger, UserManager } from 'oidc-client-ts-lumeris';
 
 import type { UserManagerSettings } from '$lib/types';
 
@@ -12,7 +12,7 @@ export class AuthService {
   private static _userInfo: Writable<Record<string, any>> = writable({});
   private static _authError: Writable<string | null> = writable(null);
   private static _isExpired = derived(this._userInfo, ($userInfo) =>
-    $userInfo?.exp ? new Date($userInfo.exp * 1000) < new Date() : true,
+    $userInfo?.profile?.exp ? new Date($userInfo.profile.exp * 1000) < new Date() : true,
   );
   private static _isFullyAuthenticated = derived(
     [this._isLoading, this._authError, this._isAuthenticated, this._isExpired],
@@ -56,7 +56,7 @@ export class AuthService {
       AuthService.isAuthenticated.set(true);
       AuthService.accessToken.set(user.access_token);
       AuthService.idToken.set(user?.id_token ?? '');
-      AuthService.userInfo.set(user.profile);
+      AuthService.userInfo.set({ ...user });
 
       Logger.info('AuthService', 'user loaded', user);
     });
@@ -158,12 +158,17 @@ export class AuthService {
     }
   }
 
-  public static async startSigninRedirect(redirectTo?: string) {
+  public static async startSigninRedirect(
+    redirectTo?: string,
+    additionalState?: Record<string, string>,
+  ) {
     try {
+      const addState = additionalState ?? {};
       await AuthService.mgr.signinRedirect({
         state: {
           pathname: redirectTo ?? window.location.pathname,
           search: window.location.search,
+          ...addState,
         },
       });
       Logger.info('AuthService', 'signinRedirect done');

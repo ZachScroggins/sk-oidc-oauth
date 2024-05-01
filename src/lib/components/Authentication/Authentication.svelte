@@ -48,7 +48,7 @@
             isAuthenticated.set(true);
             accessToken.set(user.access_token);
             idToken.set(user?.id_token ?? '');
-            userInfo.set(user.profile);
+            userInfo.set({ ...user });
           }
         } catch (err: any) {
           isAuthenticated.set(false);
