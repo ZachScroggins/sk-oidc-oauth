@@ -1,5 +1,13 @@
 # sk-oidc-oauth
 
+## 1.2.0
+
+### Minor Changes
+
+- [#33](https://github.com/ZachScroggins/sk-oidc-oauth/pull/33) [`4d5ffa6`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/4d5ffa652ce9cf65d70552bb62d6aa675d19fd91) Thanks [@benMain](https://github.com/benMain)! - deps(MultiVersion): Add compatibility with svelte-kit2, and set the userProfile to the whole user object.
+
+- [#33](https://github.com/ZachScroggins/sk-oidc-oauth/pull/33) [`4d5ffa6`](https://github.com/ZachScroggins/sk-oidc-oauth/commit/4d5ffa652ce9cf65d70552bb62d6aa675d19fd91) Thanks [@benMain](https://github.com/benMain)! - refactor(Dependencies): Utilize lumeris oidc library. Add ability to provide state at through startLoginRedirect.
+
 ## 1.1.6
 
 ### Patch Changes
