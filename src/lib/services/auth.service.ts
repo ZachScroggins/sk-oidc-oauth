@@ -1,5 +1,5 @@
 import { derived, type Writable, writable } from 'svelte/store';
-import { type ILogger, Log, Logger, UserManager } from 'oidc-client-ts';
+import { type ILogger, Log, Logger, UserManager } from 'oidc-client-ts-lumeris';
 
 import type { UserManagerSettings } from '$lib/types';
 
@@ -56,7 +56,7 @@ export class AuthService {
       AuthService.isAuthenticated.set(true);
       AuthService.accessToken.set(user.access_token);
       AuthService.idToken.set(user?.id_token ?? '');
-      AuthService.userInfo.set({...user});
+      AuthService.userInfo.set({ ...user });
 
       Logger.info('AuthService', 'user loaded', user);
     });
